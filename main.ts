@@ -5,15 +5,26 @@
  * This program lights up depending on the distance
 */
 
-let distanceToObject: number = 0
+let distanceToObject: number
 let neopixelStrip: neopixel.Strip = null
 
 //setup
 basic.showIcon(IconNames.Happy)
 basic.clearScreen()
 
+//Turning off the lights
+neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.show()
+basic.showIcon(IconNames.Happy)
+
 input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
+     
+     //To get the distance
     distanceToObject = sonar.ping(
         DigitalPin.P1,
         DigitalPin.P2,
