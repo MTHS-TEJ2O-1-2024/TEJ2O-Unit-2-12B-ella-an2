@@ -5,6 +5,7 @@
  * This program lights up depending on the distance
 */
 
+//variable
 let distanceToObject: number = 0
 let neopixelStrip: neopixel.Strip = null
 
